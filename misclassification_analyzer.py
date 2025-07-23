@@ -258,7 +258,7 @@ def main():
     
     # Initialize analyzer
     analyzer = MisclassificationAnalyzer(
-        model_path='best_advanced_model.keras',  # Use the best model
+        model_path='best_advanced_model.h5',  # Use the best model
         data_dir='.',
         img_size=(224, 224)
     )

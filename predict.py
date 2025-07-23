@@ -13,7 +13,7 @@ class CricketShotPredictor:
         Cricket Shot Predictor - Use trained model for predictions
         
         Args:
-            model_path: Path to the trained model file (.h5)
+            model_path: Path to the trained model file (.keras)
             img_size: Input image size expected by the model
         """
         self.model_path = model_path
@@ -200,8 +200,8 @@ class CricketShotPredictor:
 def main():
     """Main function"""
     parser = argparse.ArgumentParser(description='Cricket Shot Predictor')
-    parser.add_argument('--model', type=str, default='quick_fix_classifier.h5',
-                       help='Path to trained model file')
+    parser.add_argument('--model', type=str, default='saved_models/best_advanced_model.h5',
+                       help='Path to trained model file (.keras or .h5)')
     parser.add_argument('--image', type=str, help='Path to single image for prediction')
     parser.add_argument('--folder', type=str, help='Path to folder with images for batch prediction')
     parser.add_argument('--interactive', action='store_true', help='Run in interactive mode')
