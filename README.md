@@ -33,18 +33,20 @@ This project implements advanced machine learning models to classify cricket sho
 
 ```
 shotpredictionml/
-├── 📊 CRICKET_SHOT_CLASSIFICATION_PROJECT.md    # Complete documentation
-├── 🎯 quick_ensemble.py                         # Final ensemble evaluation
-├── 🔮 predict.py                                # Prediction script
-├── 📈 misclassification_analyzer.py             # Error analysis
+├── 🎯 main.py                                   # Main entry point (EASY TO USE!)
+├── 🏆 ensemble_predictor.py                     # Core ensemble prediction engine
+├── 🔮 predict.py                                # Original prediction script
+├── 📊 quick_ensemble.py                         # Ensemble evaluation
 ├── 📋 README.md                                 # This file
 ├── 📦 requirements.txt                          # Dependencies
+├── 📊 CRICKET_SHOT_CLASSIFICATION_PROJECT.md    # Complete documentation
+├── 📁 saved_models/                             # Trained models
+│   ├── ensemble_model_1.keras                   # Custom CNN (90.90%)
+│   ├── ensemble_model_2.keras                   # ResNet50V2 (95.24%)
+│   ├── best_advanced_model.h5                   # Advanced CNN (91.64%)
+│   └── advanced_cricket_shot_classifier.h5      # Backup model
 ├── 📁 old_models/                               # Previous model versions
-│   ├── 01_original_classifier.py               # Initial failed model (25%)
-│   ├── 02_working_classifier.py                # First working model (88%)
-│   ├── 03_advanced_classifier.py               # Enhanced model (91.64%)
-│   ├── 04_ensemble_classifier.py               # Ensemble training
-│   └── 05_no_augmentation_classifier.py        # No augmentation test
+├── 📁 scripts/                                  # Additional scripts
 ├── 🏏 drive/                                    # Drive shot images (1,257)
 ├── 🏏 legglance-flick/                          # Legglance-flick images (1,117)
 ├── 🏏 pullshot/                                 # Pullshot images (1,257)
@@ -60,22 +62,25 @@ shotpredictionml/
 pip install -r requirements.txt
 ```
 
-### **2. Evaluate the Final Ensemble Model**
+### **2. Use the Main Predictor (EASIEST!)**
 ```bash
-python quick_ensemble.py
-```
-This will load the trained ensemble models and show detailed performance metrics.
-
-### **3. Make Predictions**
-```bash
-# Interactive mode
-python predict.py
-
 # Single image prediction
+python main.py --image drive/drives1.png
+
+# Interactive mode
+python main.py --interactive
+
+# Batch prediction (first 5 images)
+python main.py --batch drive/
+```
+
+### **3. Alternative Methods**
+```bash
+# Original prediction script
 python predict.py --image path/to/image.jpg
 
-# Batch prediction
-python predict.py --folder path/to/images/ --max-images 20
+# Ensemble evaluation
+python quick_ensemble.py
 ```
 
 ---
